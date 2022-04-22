@@ -18,3 +18,9 @@ let imageElString = '';
 images.forEach(el => {
   imageElString += `<li><img src="${el.url}" alt="${el.alt}" width = 400px ><img></li>`;
 });
+
+galleryEl.insertAdjacentHTML('afterbegin', imageElString);
+galleryEl.style.display = 'flex';
+galleryEl.style.alignItems = 'center';
+galleryEl.style.justifyContent = 'space-between';
+galleryEl.style.listStyleType = 'none';
