@@ -23,19 +23,16 @@ function onInputChange(event) {
 }
 
 function onBtnCreateClick() {
-  let width = 30;
-  let height = 30;
+  let boxSize = 30;
   let divElArray = [];
 
   for (let i = 1; i <= numbersOfEl; i++) {
+    boxSize += 10;
     const color = getRandomHex();
     const element = document.createElement('div');
     element.style.backgroundColor = color;
-    element.style.width = `${width}px`;
-    element.style.height = `${height}px`;
+    element.style.size = `${size}px`;
     divElArray.push(element);
-    width += 10;
-    height += 10;
   }
 
   boxesEl.append(...divElArray);
@@ -43,4 +40,10 @@ function onBtnCreateClick() {
 
 function onBtnCreateClick() {
   boxesEl.innerHTML = '';
+  valueInputEl.removeAttribute('counter');
+  valueInputEl.value = '';
 }
+
+valueInputEl.addEventListener('input', onCreaterInValueInput);
+btnCreate.addEventListener('click', onBtnCreateBoxes);
+btnDestroy.addEventListener('click', onBtnDestroy);
